@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'tela_cadastro.dart';
+import 'menu.dart';
 
 class TelaLogin extends StatefulWidget {
   const TelaLogin({super.key});
@@ -14,34 +15,10 @@ class _TelaLoginState extends State<TelaLogin> {
   final TextEditingController _senhaController = TextEditingController();
 
   void _fazerLogin() {
-    String cpf = _cpfController.text.trim();
-    String senha = _senhaController.text.trim();
-
-    if (cpf.isEmpty || senha.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Preencha todos os campos!"),
-          backgroundColor: Colors.red,
-        ),
-      );
-      return;
-    }
-
-    // conectar backend aqui
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text("Login"),
-          content: Text("CPF: $cpf\nSenha: $senha"),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text("Fechar"),
-            ),
-          ],
-        );
-      },
+    // Navega para o menu
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const TelaMenu()),
     );
   }
 

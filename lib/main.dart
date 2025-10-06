@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'login.dart';
 import 'tela_cadastro.dart';
+import 'menu.dart';
 
 void main() {
   runApp(const MeuApp());
@@ -22,6 +23,7 @@ class MeuApp extends StatelessWidget {
       routes: {
         '/': (context) => const TelaLogin(),
         '/cadastro': (context) => const TelaCadastro(),
+        '/menu': (context) => const TelaMenu(),
       },
       debugShowCheckedModeBanner: false,
     );
