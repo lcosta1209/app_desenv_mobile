@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'login.dart';
 import 'tela_cadastro.dart';
 import 'menu.dart';
+import 'tela_fila.dart';
+import 'tela_novo_atendimento.dart';
 
 void main() {
   runApp(const MeuApp());
@@ -24,6 +26,8 @@ class MeuApp extends StatelessWidget {
         '/': (context) => const TelaLogin(),
         '/cadastro': (context) => const TelaCadastro(),
         '/menu': (context) => const TelaMenu(),
+        '/fila': (context) => const TelaFila(),
+        '/atendimento': (context) => const TelaNovoAtendimento(),
       },
       debugShowCheckedModeBanner: false,
     );

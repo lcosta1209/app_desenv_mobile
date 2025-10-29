@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'tela_fila.dart';
+import 'tela_novo_atendimento.dart';
 
 class TelaMenu extends StatefulWidget {
   const TelaMenu({super.key});
@@ -58,11 +60,11 @@ class _TelaMenuState extends State<TelaMenu> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("Cadastro realizado!")),
-                        );
-                      }
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const TelaNovoAtendimento()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF1E3A8A),
@@ -88,11 +90,10 @@ class _TelaMenuState extends State<TelaMenu> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("Cadastro realizado!")),
-                        );
-                      }
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const TelaFila()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF1E3A8A),
@@ -113,14 +114,14 @@ class _TelaMenuState extends State<TelaMenu> {
                 ),
                 const SizedBox(height: 20),
                 
-                // Botão Cadastrar
+                // Botão Sair
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("Cadastro realizado!")),
+                          const SnackBar(content: Text("Voltar para login!")),
                         );
                       }
                     },
