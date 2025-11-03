@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1029049077046",
+    "project_id": "atendiplus-f7c7b",
+    "storage_bucket": "atendiplus-f7c7b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029049077046:android:479525e2925e55aabd3797",
+        "android_client_info": {
+          "package_name": "com.example.app_desenv_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_FkYx9jm5UQxC1gZyG-Cbggvvzct4ADI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
