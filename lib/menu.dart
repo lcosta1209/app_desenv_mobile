@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'tela_fila.dart';
 import 'tela_novo_atendimento.dart';
+import 'services/auth_service.dart';
 
 class TelaMenu extends StatefulWidget {
   const TelaMenu({super.key});
@@ -11,12 +12,31 @@ class TelaMenu extends StatefulWidget {
 
 class _TelaMenuState extends State<TelaMenu> {
   final _formKey = GlobalKey<FormState>();
+  final AuthService _authService = AuthService();
 
-  final TextEditingController _nomeController = TextEditingController();
-  final TextEditingController _cpfController = TextEditingController();
-  final TextEditingController _dataNascimentoController =
-      TextEditingController();
-  final TextEditingController _telefoneController = TextEditingController();
+  Future<void> _fazerLogout() async {
+    try {
+      await _authService.signOut();
+      if (mounted) {
+        _mostrarMensagem('Logout realizado com sucesso!');
+        Navigator.pushReplacementNamed(context, '/');
+      }
+    } catch (e) {
+      if (mounted) {
+        _mostrarMensagem('Erro ao fazer logout: $e', isError: true);
+      }
+    }
+  }
+
+  void _mostrarMensagem(String mensagem, {bool isError = false}) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(mensagem),
+        backgroundColor: isError ? Colors.red : Colors.green,
+        duration: const Duration(seconds: 2),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +83,8 @@ class _TelaMenuState extends State<TelaMenu> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const TelaNovoAtendimento()),
+                          builder: (context) => const TelaNovoAtendimento(),
+                        ),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -92,7 +113,9 @@ class _TelaMenuState extends State<TelaMenu> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const TelaFila()),
+                        MaterialPageRoute(
+                          builder: (context) => const TelaFila(),
+                        ),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -113,20 +136,14 @@ class _TelaMenuState extends State<TelaMenu> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                
+
                 // Botão Sair
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("Voltar para login!")),
-                        );
-                      }
-                    },
+                    onPressed: _fazerLogout,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF1E3A8A),
+                      backgroundColor: Color(0xFF1E3A8A),
                       padding: const EdgeInsets.symmetric(vertical: 14),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
