@@ -18,6 +18,8 @@ class _TelaCadastroState extends State<TelaCadastro> {
   final TextEditingController _nomeController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _cpfController = TextEditingController();
+  final TextEditingController _dataNascimentoController = TextEditingController();
+  final TextEditingController _telefoneController = TextEditingController();
   final TextEditingController _senhaController = TextEditingController();
 
   bool _isLoading = false;
@@ -52,6 +54,12 @@ class _TelaCadastroState extends State<TelaCadastro> {
         nome: _nomeController.text.trim(),
         email: _emailController.text.trim(),
         cpf: _cpfController.text.trim(),
+        dataNascimento: _dataNascimentoController.text.trim().isEmpty
+            ? null
+            : _dataNascimentoController.text.trim(),
+        telefone: _telefoneController.text.trim().isEmpty
+            ? null
+            : _telefoneController.text.trim(),
       );
 
       try {
@@ -64,10 +72,10 @@ class _TelaCadastroState extends State<TelaCadastro> {
         if (userCredential != null && userCredential.user != null) {
           if (mounted) {
             _mostrarMensagem('Cadastro realizado com sucesso!');
-            // Voltar para tela de login após 1 segundo
-            Future.delayed(const Duration(seconds: 1), () {
+            // Redirecionar para o menu após cadastro bem-sucedido
+            Future.delayed(const Duration(milliseconds: 500), () {
               if (mounted) {
-                Navigator.pop(context);
+                Navigator.pushReplacementNamed(context, '/menu');
               }
             });
           }
@@ -237,6 +245,48 @@ class _TelaCadastroState extends State<TelaCadastro> {
                 ),
                 const SizedBox(height: 16),
 
+                // Data de Nascimento
+                TextFormField(
+                  controller: _dataNascimentoController,
+                  keyboardType: TextInputType.datetime,
+                  decoration: InputDecoration(
+                    labelText: "Data de nascimento",
+                    hintText: "DD/MM/AAAA",
+                    prefixIcon: const Icon(Icons.calendar_today),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 14,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+
+                // Telefone
+                TextFormField(
+                  controller: _telefoneController,
+                  keyboardType: TextInputType.phone,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    LengthLimitingTextInputFormatter(11),
+                  ],
+                  decoration: InputDecoration(
+                    labelText: "Telefone",
+                    hintText: "DDD + Número",
+                    prefixIcon: const Icon(Icons.phone),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 14,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+
                 // Senha
                 TextFormField(
                   controller: _senhaController,
@@ -318,5 +368,16 @@ class _TelaCadastroState extends State<TelaCadastro> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _nomeController.dispose();
+    _emailController.dispose();
+    _cpfController.dispose();
+    _dataNascimentoController.dispose();
+    _telefoneController.dispose();
+    _senhaController.dispose();
+    super.dispose();
   }
 }

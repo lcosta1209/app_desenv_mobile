@@ -9,10 +9,18 @@ class ClienteAdapter {
     required String nome,
     required String email,
     required String cpf,
+    String? dataNascimento,
+    String? telefone,
   }) async {
     try {
       // Criar cliente (as validações de email e CPF já foram feitas na tela)
-      final cliente = Cliente(nome: nome, email: email, cpf: cpf);
+      final cliente = Cliente(
+        nome: nome,
+        email: email,
+        cpf: cpf,
+        dataNascimento: dataNascimento,
+        telefone: telefone,
+      );
 
       final clienteId = await _firebaseService.criarCliente(cliente);
       return clienteId;

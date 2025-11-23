@@ -3,6 +3,8 @@ class Cliente {
   final String nome;
   final String email;
   final String cpf;
+  final String? dataNascimento;
+  final String? telefone;
   final String? senha;
   final DateTime? criadoEm;
   final DateTime? atualizadoEm;
@@ -12,6 +14,8 @@ class Cliente {
     required this.nome,
     required this.email,
     required this.cpf,
+    this.dataNascimento,
+    this.telefone,
     this.senha,
     this.criadoEm,
     this.atualizadoEm,
@@ -23,6 +27,8 @@ class Cliente {
       'nome': nome,
       'email': email,
       'cpf': cpf,
+      if (dataNascimento != null) 'dataNascimento': dataNascimento,
+      if (telefone != null) 'telefone': telefone,
       'criadoEm': criadoEm,
       'atualizadoEm': atualizadoEm,
     };
@@ -35,6 +41,8 @@ class Cliente {
       nome: map['nome'] ?? '',
       email: map['email'] ?? '',
       cpf: map['cpf'] ?? '',
+      dataNascimento: map['dataNascimento'],
+      telefone: map['telefone'],
       criadoEm: map['criadoEm']?.toDate(),
       atualizadoEm: map['atualizadoEm']?.toDate(),
     );
@@ -46,6 +54,8 @@ class Cliente {
     String? nome,
     String? email,
     String? cpf,
+    String? dataNascimento,
+    String? telefone,
     String? senha,
     DateTime? criadoEm,
     DateTime? atualizadoEm,
@@ -55,6 +65,8 @@ class Cliente {
       nome: nome ?? this.nome,
       email: email ?? this.email,
       cpf: cpf ?? this.cpf,
+      dataNascimento: dataNascimento ?? this.dataNascimento,
+      telefone: telefone ?? this.telefone,
       senha: senha ?? this.senha,
       criadoEm: criadoEm ?? this.criadoEm,
       atualizadoEm: atualizadoEm ?? this.atualizadoEm,
