@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'login.dart';
-import 'tela_cadastro.dart';
-import 'menu.dart';
-import 'tela_fila.dart';
-import 'tela_novo_atendimento.dart';
+import 'views/views.dart';
 import 'helpers/database_helper.dart';
 
 void main() async {
@@ -37,11 +33,11 @@ class MeuApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const TelaLogin(),
-        '/cadastro': (context) => const TelaCadastro(),
-        '/menu': (context) => const TelaMenu(),
-        '/fila': (context) => const TelaFila(),
-        '/atendimento': (context) => const TelaNovoAtendimento(),
+        '/': (context) => const LoginView(),
+        '/cadastro': (context) => const CadastroView(),
+        '/menu': (context) => const MenuView(),
+        '/fila': (context) => const FilaView(),
+        '/atendimento': (context) => const NovoAtendimentoView(),
       },
       debugShowCheckedModeBanner: false,
     );

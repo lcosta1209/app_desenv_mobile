@@ -37,19 +37,14 @@ class FilaService {
   // Obter a próxima posição na fila
   Future<int> _obterProximaPosicao() async {
     try {
+      // Conta quantos usuários estão com status "aguardando"
       QuerySnapshot snapshot = await _firestore
           .collection(_collectionName)
           .where('status', isEqualTo: 'aguardando')
-          .orderBy('posicao', descending: true)
-          .limit(1)
           .get();
 
-      if (snapshot.docs.isEmpty) {
-        return 1; // Primeira posição
-      }
-
-      int ultimaPosicao = snapshot.docs.first['posicao'] as int;
-      return ultimaPosicao + 1;
+      // A próxima posição é o total de pessoas aguardando + 1
+      return snapshot.docs.length + 1;
     } catch (e) {
       return 1; // Se houver erro, começa da posição 1
     }
@@ -159,6 +154,11 @@ class FilaService {
     } catch (e) {
       return 0;
     }
+  }
+
+  // Método público para obter a próxima posição
+  Future<int> obterProximaPosicao() async {
+    return await _obterProximaPosicao();
   }
 
   // Calcular tempo estimado de espera (assumindo 10 minutos por pessoa)
