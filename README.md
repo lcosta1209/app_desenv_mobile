@@ -40,21 +40,22 @@ O **Atendi+** digitaliza o processo de atendimento, permitindo:
 
 ## **Funcionamento do App**
 1. O paciente faz login com **CPF e senha**;  
-2. Pode **ver sua posição na fila** e o **tempo estimado**;  
-3. Pode **ativar notificações**;  
-4. O atendente controla os atendimentos no painel administrativo.  
+2. O paciente pode **registrar-se em uma fila**;  
+3. Pode **ver sua posição na fila** e o **tempo estimado**;  
+4. Pode **ativar notificações**;  
+5. O atendente controla os atendimentos no painel administrativo.  
 
 ---
 
 ## **Telas do Aplicativo**
 **Tela de Login:**  
-![Tela de Login](Captura%20de%20tela%202025-10-31%20223623.png)
+![Tela de Login](./docs/assets/Captura%20de%20tela%202025-10-31%20223623.png)
 
 **Tela da Fila de Atendimento:**  
-![Fila de Atendimento](Captura%20de%20tela%202025-10-31%20223631.png)
+![Fila de Atendimento](./docs/assets/Captura%20de%20tela%202025-10-31%20223631.png)
 
 **Tela de Menu Principal:**  
-![Menu Principal](Captura%20de%20tela%202025-10-31%20223639.png)
+![Menu Principal](./docs/assets/Captura%20de%20tela%202025-10-31%20223639.png)
 
 ---
 
