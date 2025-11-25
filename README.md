@@ -48,23 +48,32 @@ O **Atendi+** digitaliza o processo de atendimento, permitindo:
 ---
 
 ## **Telas do Aplicativo**
-**Tela de Login:**  
-![Tela de Login](./docs/assets/LogIn.png)
 
-**Tela de Cadastro:**  
-![Tela de Cadastro](./docs/assets/Cadastro.png)
+**Tela de Login:**
+
+<img src="./docs/assets/log_in.png" alt='Tela de Login' height="400" width="200">
+
+**Tela de Cadastro:** 
+
+<img src="./docs/assets/cadastro.png" alt='Tela de Cadastro' height="400" width="200">
 
 **Tela de Menu Principal:**  
-![Menu Principal](./docs/assets/Home.png)
+
+<img src="./docs/assets/home.png" alt='Menu Principal' height="400" width="200">
+
 
 **Tela da Fila de Atendimento:**  
-![Fila de Atendimento](./docs/assets/Fila.png)
 
-**Card de Notificações:**  
-![Card de Notificacoes](./docs/assets/Notificações.png)
+<img src="./docs/assets/fila.png" alt='Tela de Fila de Atendimento' height="400" width="200">
 
-**Modal de Confirmação:**  
-![Modal de confirmacao](./docs/assets/SairFila.png)
+
+**Card de Notificações:** 
+
+<img src="./docs/assets/notif.png" alt='Card de Notificações' height="400" width="200">
+
+**Modal de Confirmação:** 
+
+<img src="./docs/assets/sair_fila.png" alt='Modal de Confirmação' height="400" width="200">
 
 ---
 
