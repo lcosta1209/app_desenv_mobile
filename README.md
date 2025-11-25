@@ -68,6 +68,7 @@ O **Atendi+** digitaliza o processo de atendimento, permitindo:
 
 ---
 
+
 ## **Conclusão**
 O **Atendi+** oferece uma solução prática e acessível para o controle de filas em unidades de saúde, trazendo **mais organização, eficiência e transparência** ao processo de atendimento.
 
